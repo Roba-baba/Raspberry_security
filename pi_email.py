@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env python
 #Import necessary Python packages 
 import RPi.GPIO as GPIO 
 import time 

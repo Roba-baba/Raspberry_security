@@ -1,4 +1,3 @@
-#!/bin/bash
 # OpenCV – Python Code. 
 
 # import the necessary packages 
@@ -9,7 +8,7 @@ import cv2
 
 # construct the argument parser and parse the arguments 
 ap = argparse.ArgumentParser() 
-ap.add_argument("-v", "--video", help="C:\Users\shadrack\Desktop\opencv") 
+ap.add_argument("-v", "--video", help="C:\Users\robert\Desktop\opencv") 
 ap.add_argument("-a", "--min-area", type=int, default=1000, help="minimum area size") 
 args = vars(ap.parse_args()) 
 
