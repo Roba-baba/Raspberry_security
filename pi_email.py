@@ -20,10 +20,10 @@ def connect_type(word_list):
         con_type = 'current'
     return con_type #gmail settings
 
-toaddrs = 'sheshaisylvestre@yahoo.com' 
-username = 'singoee93@gmail.com' 
-fromaddrs = 'singoee93@gmail.com' 
-password = 'sylvestre'
+toaddrs = 'boyr47@gmail.com' 
+username = 'owarerobert' 
+fromaddrs = 'owarerobert@gmail.com' 
+password = 'p@ssword'
 
 #setting up server to use to send mail
 smtpserver = smtplib.SMTP('smtp.gmail.com', 587) 
@@ -46,7 +46,7 @@ my_ip_a = 'Your %s IP address is %s' % (ip_type_a, ipaddr_a)
 my_ip_b = 'Your %s IP address is %s' % (ip_type_b, ipaddr_b)
 msg1 = MIMEText(my_ip_a)
 msg1['Subject'] = 'BOOT IP'
-msg1['From'] = 'singoee93@gmail.com'
+msg1['From'] = 'owarerobert@gmail.com'
 arg='ip route list'
 p=subprocess.Popen(arg,shell=True,stdout=subprocess.PIPE)
 data=p.communicate()
@@ -61,7 +61,7 @@ my_ip_a = 'Your %s IP address is %s' % (ip_type_a, ipaddr_a)
 my_ip_b = 'Your %s IP address is %s' % (ip_type_b, ipaddr_b)
 msg1 = MIMEText(my_ip_a)
 msg1['Subject'] = 'BOOT IP'
-msg1['From'] = 'singoee93@gmail.com'
+msg1['From'] = 'owarerobert@gmail.com'
 msg1['To'] = 'toaddrs'
 smtpserver.sendmail(fromaddrs, toaddrs, msg1.as_string())
 smtpserver.quit() 
@@ -129,15 +129,15 @@ while True:
                 print ("Sending mail....")
                 #send gmail to prescribed mailhub
                 
-                fromaddrs = 'singoee93@gmail.com'
-                password = '**********'
-                username = 'singoee93@gmail.com' toaddrs = 'sheshaisylvestre@yahoo.com'
+                fromaddrs = 'owarerobert@gmail.com'
+                password = '*********'
+                username = 'owaerobert' toaddrs = 'boyr47@gmail.com'
                 
                 Subject = 'PIR Activated!!!'
                 body = email.mime.Text.MIMEText('PIR Sensor detected motion') msg = email.mime.Multipart.MIMEMultipart()
                 msg['Subject'] = 'PIR Triggered!'
-                msg['fromaddrs'] = 'singoee93@gmail.com'
-                msg['toaddrs'] = 'sheshaisylvestre@yahoo.com'
+                msg['fromaddrs'] = 'owarerobert@gmail.com'
+                msg['toaddrs'] = 'boyr47@gmail.com'
                 msg.attach(body)
                 #send the attached file
                 filename = 'my_camera.h264'
@@ -153,8 +153,8 @@ while True:
                 body = email.mime.Text.MIMEText('PIR Sensor detected motion')
                 msg = email.mime.Multipart.MIMEMultipart()
                 msg['Subject'] = 'PIR Triggered!'
-                msg['fromaddrs'] = 'singoee93@gmail.com'
-                msg['toaddrs'] = 'sheshaisylvestre@yahoo.com' msg.attach(body)
+                msg['fromaddrs'] = 'owarerobert@gmail.com'
+                msg['toaddrs'] = 'boyr47@gmail.com' msg.attach(body)
                 
                 #send the attached file
                 filename = 'my_camera.h264'
