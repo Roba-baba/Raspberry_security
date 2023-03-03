@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 #Import necessary Python packages import RPi.GPIO as GPIO
 import time
-import picamera
+#import picamera
 import sys
 import urllib
 import smtplib
-import picamera
+#import picamera
 import mimetypes
 import email.mime.application 
 import subprocess
@@ -28,9 +28,9 @@ password = 'p@ssword'
 #setting up server to use to send mail
 smtpserver = smtplib.SMTP('smtp.gmail.com', 587) 
 smtpserver.ehlo()
-smtpserver.starttls()
+#smtpserver.starttls()
 smtpserver.ehlo() 
-smtpserver.login(username, password)
+smtpserver.auth_login(username, password)
 arg='ip route list'
 p=subprocess.Popen(arg,shell=True,stdout=subprocess.PIPE)
 data=p.communicate()
@@ -72,7 +72,8 @@ GPIO.setmode(GPIO.BOARD)
 pir_pin = 11
 GPIO.setup(11, GPIO.IN)
 led_pin = 13
-GPIO.setup(13, GPIO.OUT) GPIO.output(13, GPIO.LOW)
+GPIO.setup(13, GPIO.OUT)
+GPIO.output(13, GPIO.LOW)
 #Initialize the channel as input #Read value from channel
 #initialize the channel as output #Drive the channel
 #A function to blink an LED(represent the automatic light system)
@@ -130,11 +131,13 @@ while True:
                 #send gmail to prescribed mailhub
                 
                 fromaddrs = 'owarerobert@gmail.com'
-                password = '*********'
-                username = 'owaerobert' toaddrs = 'boyr47@gmail.com'
+                password = 'P@ssword'
+                username = "owarerobert"
+                toaddrs = "boyr47@gmail.com"
                 
                 Subject = 'PIR Activated!!!'
-                body = email.mime.Text.MIMEText('PIR Sensor detected motion') msg = email.mime.Multipart.MIMEMultipart()
+                body = email.mime.Text.MIMEText('PIR Sensor detected motion') 
+                msg = email.mime.Multipart.MIMEMultipart()
                 msg['Subject'] = 'PIR Triggered!'
                 msg['fromaddrs'] = 'owarerobert@gmail.com'
                 msg['toaddrs'] = 'boyr47@gmail.com'
@@ -148,13 +151,15 @@ while True:
                 att.add_header('Content-Disposition','attachment',filename=filename) 
                 msg.attach(att)
                 
-                server = smtplib.SMTP('smtp.gmail.com', 587) server.ehlo()
+                server = smtplib.SMTP('smtp.gmail.com', 587) 
+                server.ehlo()
                 server.starttls()
                 body = email.mime.Text.MIMEText('PIR Sensor detected motion')
                 msg = email.mime.Multipart.MIMEMultipart()
                 msg['Subject'] = 'PIR Triggered!'
                 msg['fromaddrs'] = 'owarerobert@gmail.com'
-                msg['toaddrs'] = 'boyr47@gmail.com' msg.attach(body)
+                msg['toaddrs'] = 'boyr47@gmail.com' 
+                msg.attach(body)
                 
                 #send the attached file
                 filename = 'my_camera.h264'
